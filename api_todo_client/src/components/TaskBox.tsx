@@ -1,0 +1,31 @@
+import type { Task } from "../types/Task";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+
+
+// 1. Interfaz de propiedades
+interface TaskBoxProps {
+    task: Task
+}
+
+// 2. Componente react para TaskBox
+const TaskBox: React.FC<TaskBoxProps> = ({ task }) => {
+    return (
+        <>
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 dark:border-slate-800">
+                <CardHeader>
+                    <div className="text-xs font-medium text-blue-500 dark:text-blue-400">
+                        {task.user}
+                    </div>
+                    <CardTitle className="text-xl">{task.title}</CardTitle>
+                    <CardDescription>{task.description}</CardDescription>
+                </CardHeader>
+                <CardFooter className="flex justify-between items-center">
+                    <button className="text-sm hover:underline">View</button>
+                    <span className="text-xs text-slate-500">April 2026</span>
+                </CardFooter>
+            </Card>
+        </>
+    );
+};
+
+export default TaskBox;
