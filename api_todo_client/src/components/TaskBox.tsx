@@ -1,4 +1,4 @@
-import type { Task } from "../types/Task";
+import type { Task } from "../types/Types";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 
 

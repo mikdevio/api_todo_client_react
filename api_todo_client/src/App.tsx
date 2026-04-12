@@ -1,7 +1,7 @@
 import './App.css'
 
 import TaskBox from './components/TaskBox'
-import type { TaskList } from './types/Task'
+import type { TaskList } from './types/Types'
 import { useDarkMode } from './services/DarkMode'
 
 
