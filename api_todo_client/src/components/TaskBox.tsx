@@ -21,7 +21,7 @@ const TaskBox: React.FC<TaskBoxProps> = ({ task }) => {
                 </CardHeader>
                 <CardFooter className="flex justify-between items-center">
                     <button className="text-sm hover:underline">View</button>
-                    <span className="text-xs text-slate-500">April 2026</span>
+                    <span className="text-xs text-slate-500">{task.createdAt.toDateString()}</span>
                 </CardFooter>
             </Card>
         </>
