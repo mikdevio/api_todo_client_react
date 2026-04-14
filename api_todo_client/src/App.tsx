@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react';
 
-import TaskBox from './components/TaskBox'
-import type { Task, TaskList } from './types/Types'
-import { useDarkMode } from './services/DarkMode'
-import { useEffect, useState } from 'react'
-import { apiService } from './services/ApiService'
+import { useDarkMode } from './services/DarkMode';
+import { apiService } from './services/ApiService';
+import type { Task, TaskList } from './types/Types';
 
+import TaskBox from '@/components/common/TaskBox';
 
 const defultTasks: TaskList = {
   tasks: [

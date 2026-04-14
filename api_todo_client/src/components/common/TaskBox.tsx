@@ -1,5 +1,5 @@
-import type { Task } from "../types/Types";
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import type { Task } from "@/types/Types";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 
 // 1. Interfaz de propiedades
