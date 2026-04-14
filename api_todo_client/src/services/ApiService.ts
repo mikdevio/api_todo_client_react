@@ -15,12 +15,12 @@ class ApiService {
 
     // Metodo para obtener todos las tareas
     async getAllTasks(): Promise<Task[]> {
-        try{
-            const { data } = await this.http.get<TaskResponse>('/task');
+        try {
+            const { data } = await this.http.get<TaskResponse>('/tasks');
             return data.data.map((task: Task) => ({
-            ...task,
-            createdAt: new Date(task.createdAt) 
-        }));
+                ...task,
+                createdAt: new Date(task.createdAt)
+            }));
         } catch (error) {
             console.log(error);
             return [];
@@ -28,17 +28,17 @@ class ApiService {
     }
 
     async getAllUsers(): Promise<User[]> {
-        const {data} = await this.http.get<User[]>('/user')
+        const { data } = await this.http.get<User[]>('/users')
         return data;
     }
 
     async getAllProjects(): Promise<Project[]> {
-        const {data} = await this.http.get<Project[]>('/project')
+        const { data } = await this.http.get<Project[]>('/projects')
         return data;
     }
 
     async getAllCategories(): Promise<Category[]> {
-        const {data} = await this.http.get<Category[]>('/category')
+        const { data } = await this.http.get<Category[]>('/categorys')
         return data;
     }
 }
