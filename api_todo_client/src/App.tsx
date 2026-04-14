@@ -98,7 +98,7 @@ function App() {
     const fetchTasks = async () => {
       try {
         const data = await apiService.getAllTasks();
-        console.log(data);
+        // console.log(data);
         setTasks(data);
       } catch (error) {
         console.log(error);

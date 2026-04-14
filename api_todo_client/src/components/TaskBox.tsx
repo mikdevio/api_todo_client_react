@@ -9,7 +9,6 @@ interface TaskBoxProps {
 
 // 2. Componente react para TaskBox
 const TaskBox: React.FC<TaskBoxProps> = ({ task }) => {
-    console.log(task);
     return (
         <>
             <Card className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 dark:border-slate-800">

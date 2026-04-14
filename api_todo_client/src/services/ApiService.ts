@@ -5,8 +5,6 @@ import type { ApiResponse, Category, Project, Task, User } from "@/types/Types";
 
 const API_TODO_URL = import.meta.env.VITE_API_TODO_URL;
 
-console.log(API_TODO_URL);
-
 
 class ApiService {
     private http: AxiosInstance;
@@ -19,7 +17,10 @@ class ApiService {
     async getAllTasks(): Promise<Task[]> {
         try{
             const { data } = await this.http.get<ApiResponse>('/task');
-            return data.data;
+            return data.data.map((task: Task) => ({
+            ...task,
+            createdAt: new Date(task.createdAt) 
+        }));
         } catch (error) {
             console.log(error);
             return [];
