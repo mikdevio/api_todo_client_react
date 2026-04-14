@@ -1,8 +1,10 @@
 import './App.css'
 
 import TaskBox from './components/TaskBox'
-import type { TaskList } from './types/Types'
+import type { Task, TaskList } from './types/Types'
 import { useDarkMode } from './services/DarkMode'
+import { useEffect, useState } from 'react'
+import { apiService } from './services/ApiService'
 
 
 const defultTasks: TaskList = {
@@ -89,6 +91,27 @@ const defultTasks: TaskList = {
 function App() {
   const { theme, toggleTheme } = useDarkMode();
 
+  const [tasks, setTasks] = useState<Task[]>(defultTasks.tasks);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const data = await apiService.getAllTasks();
+        console.log(data);
+        setTasks(data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTasks();
+  }, []);
+
+  if (loading) return <p>Cargando...</p>;
+
   return (
     <>
       <div className="min-h-screen bg-bg-main text-text-main p-8 text-center">
@@ -100,7 +123,7 @@ function App() {
           {theme === 'light' ? 'Modo Oscuro 🌙' : 'Modo Claro ☀️'}
         </button>
         <div className='grid grid-cols-3 sm:grid-cols-2:grid-cols-3 xl:grid-cols-4 gap-6 p-6'>
-          {defultTasks.tasks.map((task, index) => (
+          {tasks.map((task, index) => (
             <TaskBox key={index} task={task} />
           ))}
         </div>

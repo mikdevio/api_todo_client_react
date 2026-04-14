@@ -1,5 +1,5 @@
 
-export type Task = {
+export interface Task {
   title: string,
   description: string,
   user: string,
@@ -9,18 +9,24 @@ export type Task = {
   project: Project,
 }
 
+export interface ApiResponse {
+  status: string,
+  data: [],
+  msg: string,
+}
+
 export interface TaskList {
   tasks: Task[]
 }
 
-export type Category = {
+export interface Category {
   name: string,
   description: string,
   createdAt: Date,
   task: Task[]
 }
 
-export type Project = {
+export interface Project {
   name: string,
   description: string,
   color: string,
@@ -30,7 +36,7 @@ export type Project = {
   createdAt: Date
 }
 
-export type User = {
+export interface User {
   firstName: string,
   lastName: string,
   address: string,
