@@ -1,4 +1,3 @@
-import './App.css'
 
 import TaskBox from './components/TaskBox'
 import type { Task, TaskList } from './types/Types'
