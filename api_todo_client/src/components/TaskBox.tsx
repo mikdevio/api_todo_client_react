@@ -13,8 +13,9 @@ const TaskBox: React.FC<TaskBoxProps> = ({ task }) => {
         <>
             <Card className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 dark:border-slate-800">
                 <CardHeader>
-                    <div className="text-xs font-medium text-blue-500 dark:text-blue-400">
-                        {task.user}
+                    <div className="text-xs font-medium text-blue-500 dark:text-blue-400 justify-between">
+                        <div>{task.project.name}</div>
+                        <div>{task.completed ? "Completed" : "Incomplete"}</div>
                     </div>
                     <CardTitle className="text-xl">{task.title}</CardTitle>
                     <CardDescription>{task.description}</CardDescription>

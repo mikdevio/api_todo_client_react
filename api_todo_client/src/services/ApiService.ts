@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { AxiosInstance } from "axios";
 
-import type { ApiResponse, Category, Project, Task, User } from "@/types/Types";
+import type { Category, Project, Task, TaskResponse, User } from "@/types/Types";
 
 const API_TODO_URL = import.meta.env.VITE_API_TODO_URL;
 
@@ -16,7 +16,7 @@ class ApiService {
     // Metodo para obtener todos las tareas
     async getAllTasks(): Promise<Task[]> {
         try{
-            const { data } = await this.http.get<ApiResponse>('/task');
+            const { data } = await this.http.get<TaskResponse>('/task');
             return data.data.map((task: Task) => ({
             ...task,
             createdAt: new Date(task.createdAt) 

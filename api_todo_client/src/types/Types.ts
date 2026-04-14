@@ -11,8 +11,11 @@ export interface Task {
 
 export interface ApiResponse {
   status: string,
-  data: [],
   msg: string,
+}
+
+export interface TaskResponse extends ApiResponse {
+  data: Task[]
 }
 
 export interface TaskList {
