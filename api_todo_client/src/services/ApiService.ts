@@ -17,6 +17,7 @@ class ApiService {
     async getAllTasks(): Promise<Task[]> {
         try {
             const { data } = await this.http.get<TaskResponse>('/tasks');
+            // console.log(data.data);
             return data.data.map((task: Task) => ({
                 ...task,
                 createdAt: new Date(task.createdAt)
@@ -38,7 +39,7 @@ class ApiService {
     }
 
     async getAllCategories(): Promise<Category[]> {
-        const { data } = await this.http.get<Category[]>('/categorys')
+        const { data } = await this.http.get<Category[]>('/categories')
         return data;
     }
 }
