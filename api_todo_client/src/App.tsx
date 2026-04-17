@@ -57,16 +57,31 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import DashboardPage from './pages/DashboardPage';
+import MainLayout from './components/layout/MainLayout';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <DashboardPage prop="" />
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <DashboardPage title='API-TODO' />
+      },
+      {
+        path: "about",
+        element: <h1>About</h1>
+      },
+      {
+        path: "data",
+        element: <h1>Database</h1>
+      }
+    ]
   },
+
 ]);
 
-export function App() {
+function App() {
   return <RouterProvider router={router}></RouterProvider>
 }
-
 export default App;

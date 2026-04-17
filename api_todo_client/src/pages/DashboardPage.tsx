@@ -1,16 +1,15 @@
-import MainLayout from "@/components/layout/MainLayout"
 
 interface DashboardPageProps {
-    prop: string
+    title: string
 }
 
-const DashboardPage: React.FC<DashboardPageProps> = ({ prop }) => {
+const DashboardPage: React.FC<DashboardPageProps> = ({ title }) => {
     return (
-        <MainLayout>
+        <>
             <div className="flex flex-col gap-4">
                 <h1>Dashboard panel</h1>
             </div>
-        </MainLayout>
+        </>
     )
 }
 

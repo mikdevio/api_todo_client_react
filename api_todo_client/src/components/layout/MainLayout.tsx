@@ -1,21 +1,19 @@
-import SideBar from "../common/SideBar";
+import { Outlet } from "react-router-dom";
+import { SidebarProvider } from "../ui";
+import AppSideBar from "../common/SideBar";
 
-interface MainLayoutProps {
-    children: React.ReactNode
-}
-
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayout = () => {
     return (
-        <div className='flex min-h-screen' >
-            <div className="flex-1">
-                <SideBar prop='1' />
-                <main className="p-6">
-
-                    {children}
-                </main>
+        <SidebarProvider>
+            <AppSideBar sidebar_title="API-TODO" />
+            <div className='flex min-h-screen'>
+                <div className="flex-1">
+                    <main className="p-6">
+                        <Outlet />
+                    </main>
+                </div>
             </div>
-        </div >
+        </SidebarProvider>
     )
 }
-
 export default MainLayout;
