@@ -1,3 +1,4 @@
+import type { Icon } from "@tabler/icons-react"
 
 export interface Task {
   title: string,
@@ -49,3 +50,8 @@ export interface User {
   projects: Project[]
 }
 
+export interface NavMainItem {
+    title: string,
+    url: string,
+    icon?: Icon
+}

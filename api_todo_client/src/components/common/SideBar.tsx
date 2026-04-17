@@ -1,18 +1,30 @@
 "use client"
 
-import { Sidebar } from 'lucide-react';
 import * as React from 'react';
-import { SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '../ui';
+import { SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, Sidebar } from '@/components/ui';
 
-import { IconInnerShadowTop } from "@tabler/icons-react";
+import { IconAbc, IconInnerShadowTop } from "@tabler/icons-react";
+import NavMain from './NavMain';
 
 interface SideBarProps {
     sidebar_title: string
 }
 
+const data = {
+    nav_main_items: [
+        {
+            title: "Option 1",
+            url: "#",
+            icon: IconAbc
+        }
+    ],
+
+}
+
+
 const AppSideBar: React.FC<SideBarProps> = ({ sidebar_title }) => {
     return (
-        <Sidebar>
+        <Sidebar collapsible='offcanvas'>
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
@@ -26,9 +38,7 @@ const AppSideBar: React.FC<SideBarProps> = ({ sidebar_title }) => {
                 </SidebarMenu>
             </SidebarHeader>
             <SidebarContent>
-                <SidebarGroup>
-                    Asde
-                </SidebarGroup>
+                <NavMain items={data.nav_main_items}></NavMain>
             </SidebarContent>
             <SidebarFooter />
         </Sidebar>
