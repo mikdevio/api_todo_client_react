@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, Sidebar } from '@/components/ui';
 
-import { IconAbc, IconInnerShadowTop } from "@tabler/icons-react";
+import { IconAbc, IconAddressBook, IconInnerShadowTop } from "@tabler/icons-react";
 import NavMain from './NavMain';
 
 interface SideBarProps {
@@ -16,7 +16,13 @@ const data = {
             title: "Option 1",
             url: "#",
             icon: IconAbc
-        }
+        },
+        {
+            title: "Option 2",
+            url: "#",
+            icon: IconAddressBook
+        },
+
     ],
 
 }
