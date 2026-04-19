@@ -3,7 +3,7 @@ import type { Icon } from "@tabler/icons-react"
 export interface Task {
   title: string,
   description: string,
-  user: string,
+  // user: string,
   completed: boolean,
   createdAt: Date,
   categories: Category[],
