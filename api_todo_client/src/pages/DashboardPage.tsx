@@ -1,6 +1,5 @@
 import { SectionCards } from "@/components/common/SectionCards";
 import { apiService } from "@/services/ApiService";
-import { useDarkMode } from "@/services/DarkMode";
 import type { Task } from "@/types";
 import { useEffect, useState } from "react";
 
@@ -9,7 +8,6 @@ interface DashboardPageProps {
 }
 
 const DashboardPage: React.FC<DashboardPageProps> = () => {
-  const { theme, toggleTheme } = useDarkMode();
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
