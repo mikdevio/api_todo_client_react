@@ -7,8 +7,6 @@
 // import TaskBox from '@/components/common/TaskBox';
 // import { DEFAULT_TASKS } from './utils/consts';
 
-
-
 // function App() {
 //   const { theme, toggleTheme } = useDarkMode();
 
@@ -53,11 +51,10 @@
 //   )
 // }
 
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
-import DashboardPage from './pages/DashboardPage';
-import MainLayout from './components/layout/MainLayout';
+import DashboardPage from "./pages/DashboardPage";
+import MainLayout from "./components/layout/MainLayout";
 
 const router = createBrowserRouter([
   {
@@ -66,22 +63,21 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <DashboardPage title='API-TODO' />
+        element: <DashboardPage title="API-TODO" />,
       },
       {
         path: "about",
-        element: <h1>About</h1>
+        element: <h1>About</h1>,
       },
       {
         path: "data",
-        element: <h1>Database</h1>
-      }
-    ]
+        element: <h1>Database</h1>,
+      },
+    ],
   },
-
 ]);
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>
+  return <RouterProvider router={router}></RouterProvider>;
 }
 export default App;
