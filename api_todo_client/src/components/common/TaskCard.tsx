@@ -10,6 +10,8 @@ import {
 } from "@/components/ui";
 
 import type { Task } from "@/types";
+import { Edit2Icon, TrashIcon } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 interface TaskCardProps {
   task: Task;
@@ -21,16 +23,25 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
       <CardHeader>
         <CardDescription>{task.createdAt.toDateString()}</CardDescription>
         <CardTitle>{task.title}</CardTitle>
-        <CardAction>{task.completed}</CardAction>
+        <CardAction>
+          <Badge>
+            {task.completed ? "Completed" : "Pending"}
+          </Badge>
+        </CardAction>
       </CardHeader>
       <CardContent>
         <p>{task.description}</p>
       </CardContent>
       <CardFooter>
-        <Button variant="outline" size="sm" className="w-full">
-          Action
-        </Button>
+        <div className="flex justify-start gap-2 md:flex-row">
+          <Button variant="outline" size="icon">
+            <Edit2Icon />
+          </Button>
+          <Button variant="outline" size='icon'>
+            <TrashIcon />
+          </Button>
+        </div>
       </CardFooter>
-    </Card>
+    </Card >
   );
 };
